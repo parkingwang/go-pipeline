@@ -1,0 +1,34 @@
+# 内置输入插件。连接指定远程服务端TCP端口，接收服务端推送数据。
+[GoPLTCPClientInput]
+  # 禁用
+  disabled = true
+  decoder = "JSONDecoder"
+  topic = "/messages/yoojia.xyz"
+[GoPLTCPClientInput.InitArgs]
+  auth_secret_key = "Pa55W0rd!"
+  remote_address = "127.0.0.1:6661"
+  reconnect_interval = "3s"
+  connection_timeout = "10s"
+  read_timeout = "5s"
+  keep_alive = true
+  keep_alive_interval = "3s"
+
+
+# 内置输入插件。创建Http服务器，等待客户端通过POST方法上传数据。
+[GoPLHttpServerInput]
+  # 禁用
+  disabled = true
+  decoder = "JSONDecoder"
+  topic = "/messages/yoojia.xyz"
+[GoPLHttpServerInput.InitArgs]
+  path_uri = "/"
+
+# 内置插件。周期性读取文件全文。
+[GoPLFilePollingInput]
+    # 禁用
+  disabled = true
+  decoder = "GoPLProcMemInfoDecoder"
+  topic = "pipe://meminfo"
+[GoPLFilePollingInput.InitArgs]
+  interval = "1s"
+  file_path = "/proc/meminfo"

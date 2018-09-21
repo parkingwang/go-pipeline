@@ -1,0 +1,35 @@
+[[constraint]]
+  name = "github.com/gorilla/websocket"
+  version = "1.2.0"
+
+[[constraint]]
+  name = "github.com/json-iterator/go"
+  version = "1.1.3"
+
+[[constraint]]
+  name = "github.com/rs/zerolog"
+  version = "1.8.0"
+
+[[constraint]]
+  name = "github.com/yoojia/go-goes"
+  version = "0.1.1"
+
+[[constraint]]
+  version = "v1.1.1"
+  name = "github.com/yoojia/go-jsonx"
+
+[[constraint]]
+  version = "v1.0.1"
+  name = "github.com/yoojia/go-http"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/yoojia/go-unit"
+
+[[constraint]]
+  version = "v2.0.2"
+  name = "github.com/parkingwang/go-conf"
+
+[prune]
+  go-tests = true
+  unused-packages = true

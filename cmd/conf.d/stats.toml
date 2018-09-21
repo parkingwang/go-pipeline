@@ -1,0 +1,22 @@
+# 统计每个周期的消息处理数量
+[GLPLDeliverCountInput]
+  # 禁用
+  disabled = true
+  decoder = "JSONDecoder"
+  topic = "/pipe/stats/report/period"
+[GLPLDeliverCountInput.InitArgs]
+  interval = "1s"
+
+# WebSocket 统计输出
+[GoPLWebSocketServerOutput]
+  # 禁用
+  disabled = true
+  topic = "/pipe/stats/report/period?from=GoPLPeriodStatsInput"
+[GoPLWebSocketServerOutput.InitArgs]
+  server_max_clients = 2
+  server_pattern = "/ws/stats"
+  server_check_origin = false
+  conn_handshake_timeout = "10s"
+  conn_write_timeout = "3s"
+  client_cache_size = 2
+  client_check_origin = false

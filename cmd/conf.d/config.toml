@@ -1,0 +1,32 @@
+# 调试输出配置
+[Debug]
+  verbose = true
+  very_verbose = false
+  routing_tracer = false
+  panic_thread_recover = true
+  block_detect_time = "300ms"
+
+## 全局配置
+[Globals]
+  foo = "bar"
+  # Any Key-Value goes here
+
+## 配置Http服务。其它使用Http服务的插件，可以通过注册Handler来处理数据。
+[GoPLHttpServer]
+  disabled = true
+  address = ":18880"
+  auth_enabled = true
+
+## Http请求服务端白名单
+[[GoPLHttpServer.WhiteList]]
+  host = "rss.domain.com"
+  remark = "RSSSSServer"
+
+## Http请求服务器授权App列表
+[[GoPLHttpServer.Apps]]
+  app_key = "SZ0755001001"
+  app_secret = "AOkdfoe978"
+
+[[GoPLHttpServer.Apps]]
+  app_key = "SZ0755001002"
+  app_secret = "768lOWEnmm"

@@ -1,0 +1,47 @@
+# 调试输出配置
+[Debug]
+  verbose = true
+  very_verbose = false
+  routing_tracer = false
+  panic_thread_recover = true
+  block_detect_time = "300ms"
+
+[GoPLWebSocketClientInput]
+  disabled = false
+  decoder = "JSONDecoder"
+  topic = "gopl://ws-input"
+[GoPLWebSocketClientInput.InitArgs]
+  server_path = "ws://asdf.parkingwang.com:10086/data/publish"
+  read_time = "5s"
+  reconnect_interval = "3s"
+  auth_enabled = true
+  auth_app_key = "ABCEV0700AD"
+  auth_app_secret = "oeKnLmfoa"
+
+[GoPLDeliverCountInput]
+  disabled = false
+  topic = "gopl://system/deliver/count"
+[GoPLDeliverCountInput.InitArgs]
+  interval = "1s"
+
+## Output
+
+# 控制台输出
+[GoPLConsoleOutput]
+  topic = "*"
+
+
+# Kafka 输出组件
+[GoPLKafkaProducerOutput]
+  disabled = true
+  topic = "*"
+[GoPLKafkaProducerOutput.InitArgs]
+  message_key = "test-data"
+  message_topic = "go-goplline-test"
+  retry_max = 10
+  required_acks = "WaitForAll | WaitForLocal | NoResponse(default)"
+  brokers = [
+    "node-imac:9092",
+    "node-thinkpad:9092",
+  ]
+
